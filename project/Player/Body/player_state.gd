@@ -18,6 +18,10 @@ func setup(change_state_in, animated_sprite_in, persistent_state_in):
 	persistent_state = persistent_state_in
 
 
+func idle():
+	pass
+
+
 func move_left():
 	pass
 

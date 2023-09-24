@@ -31,3 +31,7 @@ func move_right():
 
 func jump():
 	change_state.call("jump")
+
+
+func crouch():
+	change_state.call("crouch")

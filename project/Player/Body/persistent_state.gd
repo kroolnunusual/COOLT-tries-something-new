@@ -19,6 +19,10 @@ func _process(_delta):
 		move_right()
 	if Input.is_action_pressed("player_jump"):
 		jump()
+	if Input.is_action_pressed("player_down"):
+		crouch()
+	if Input.is_action_just_released("player_down"):
+		idle()
 
 
 func move_left():
@@ -35,6 +39,10 @@ func jump():
 
 func crouch():
 	state.crouch()
+
+
+func idle():
+	state.idle()
 
 
 func kick():

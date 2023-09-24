@@ -19,7 +19,6 @@ func _physics_process(delta):
 		persistent_state.velocity.y += gravity * delta
 	else:
 		animated_sprite.play("land")
-		printerr("change to idle")
 		change_state.call("idle")
 	super._physics_process(delta)
 

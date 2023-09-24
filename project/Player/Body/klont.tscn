@@ -11,7 +11,7 @@ script = ExtResource("1_7d82t")
 [node name="PlayerAnimator" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -10)
 sprite_frames = ExtResource("2_v7igg")
-animation = &"land"
+animation = &"crouch"
 
 [node name="ColliderShape" type="CollisionShape2D" parent="."]
 position = Vector2(0.25, 0.25)
