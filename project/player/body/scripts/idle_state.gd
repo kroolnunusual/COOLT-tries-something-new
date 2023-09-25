@@ -1,9 +1,8 @@
 class_name PlayerIdleState
 extends PlayerState
-
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+## Idle player state object.
+##
+## This is the state object which is active while the player is not moving.
 
 
 func _ready():
@@ -11,6 +10,7 @@ func _ready():
 
 
 func _physics_process(_delta):
+	# i don't know if this will come up, it's to cover moving platform edge cases
 	if not persistent_state.is_on_floor():
 		change_state.call("fall")
 

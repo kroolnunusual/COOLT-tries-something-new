@@ -1,9 +1,9 @@
 class_name PlayerCrouchState
 extends PlayerState
-
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+## Crouch player state object.
+##
+## This is the state object which is active while the player is crouching, and
+## will transition out once the input is released.
 
 
 func _ready():
@@ -30,4 +30,9 @@ func jump():
 
 func idle():
 	animated_sprite.play("reverse_crouch")
+	# once the animation is finished, we transition to idle state
+	animated_sprite.animation_finished.connect(_idle_anim_callback)
+
+
+func _idle_anim_callback():
 	change_state.call("idle")

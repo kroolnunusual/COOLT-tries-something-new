@@ -1,24 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://cugjibxqw48es"]
 
-[ext_resource type="Shape2D" uid="uid://dne4ixsnnaouf" path="res://Props/test_platform.tres" id="1_a4cb6"]
+[ext_resource type="Shape2D" uid="uid://dne4ixsnnaouf" path="res://props/test_platform.tres" id="1_a4cb6"]
 
 [sub_resource type="Gradient" id="Gradient_i8xnc"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_s71se"]
 gradient = SubResource("Gradient_i8xnc")
 
-[node name="StaticTestPlatform" type="Area2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3.30078, 21)
-texture = SubResource("GradientTexture1D_s71se")
+[node name="StaticTestPlatform" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.1875, -1.875)
 shape = ExtResource("1_a4cb6")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1.84375, 0)
-shape = ExtResource("1_a4cb6")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.30078, 21)
+texture = SubResource("GradientTexture1D_s71se")

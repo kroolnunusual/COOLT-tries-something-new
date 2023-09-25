@@ -1,37 +1,37 @@
 [gd_scene load_steps=3 format=3 uid="uid://wjpshefaacsr"]
 
-[ext_resource type="PackedScene" uid="uid://cugjibxqw48es" path="res://Props/static_test_platform.tscn" id="2_xmvpp"]
-[ext_resource type="PackedScene" uid="uid://bn3p1qydie3hu" path="res://Player/Body/klont.tscn" id="2_xs6xc"]
+[ext_resource type="PackedScene" uid="uid://bn3p1qydie3hu" path="res://player/body/klont.tscn" id="1_1yt1x"]
+[ext_resource type="PackedScene" uid="uid://cugjibxqw48es" path="res://props/static_test_platform.tscn" id="2_utoxw"]
 
 [node name="InputTestScene" type="Node2D"]
 
-[node name="Klont" parent="." instance=ExtResource("2_xs6xc")]
-position = Vector2(-86, -74)
+[node name="Klont" parent="." instance=ExtResource("1_1yt1x")]
+position = Vector2(-107, -50)
 
-[node name="StaticTestPlatform" parent="." instance=ExtResource("2_xmvpp")]
+[node name="StaticTestPlatform" parent="." instance=ExtResource("2_utoxw")]
 position = Vector2(-56, 33)
 scale = Vector2(0.5, 1)
 
-[node name="StaticTestPlatform2" parent="." instance=ExtResource("2_xmvpp")]
+[node name="StaticTestPlatform2" parent="." instance=ExtResource("2_utoxw")]
 position = Vector2(464, -99)
 scale = Vector2(0.5, 1)
 
-[node name="StaticTestPlatform3" parent="." instance=ExtResource("2_xmvpp")]
+[node name="StaticTestPlatform3" parent="." instance=ExtResource("2_utoxw")]
 position = Vector2(-156, -225)
 scale = Vector2(0.5, 1)
 
-[node name="StaticTestPlatform4" parent="." instance=ExtResource("2_xmvpp")]
+[node name="StaticTestPlatform4" parent="." instance=ExtResource("2_utoxw")]
 position = Vector2(-469, -28)
 rotation = 1.5708
 
-[node name="StaticTestPlatform5" parent="." instance=ExtResource("2_xmvpp")]
+[node name="StaticTestPlatform5" parent="." instance=ExtResource("2_utoxw")]
 position = Vector2(805, -250)
 rotation = 1.5708
 
-[node name="StaticTestPlatform6" parent="." instance=ExtResource("2_xmvpp")]
+[node name="StaticTestPlatform6" parent="." instance=ExtResource("2_utoxw")]
 position = Vector2(188, -430)
 scale = Vector2(2, 1)
 
-[node name="StaticTestPlatform7" parent="." instance=ExtResource("2_xmvpp")]
+[node name="StaticTestPlatform7" parent="." instance=ExtResource("2_utoxw")]
 position = Vector2(129, 387)
 scale = Vector2(2, 1)
