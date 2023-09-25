@@ -28,6 +28,10 @@ func jump():
 	change_state.call("jump")
 
 
+func kick():
+	change_state.call("kick")
+
+
 func idle():
 	animated_sprite.play("reverse_crouch")
 	# once the animation is finished, we transition to idle state

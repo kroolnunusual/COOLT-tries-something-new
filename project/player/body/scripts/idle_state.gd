@@ -35,3 +35,7 @@ func jump():
 
 func crouch():
 	change_state.call("crouch")
+
+
+func kick():
+	change_state.call("kick")

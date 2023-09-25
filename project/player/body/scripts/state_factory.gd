@@ -17,6 +17,7 @@ func _init():
 		"jump": PlayerJumpState,
 		"fall": PlayerFallState,
 		"crouch": PlayerCrouchState,
+		"kick": PlayerKickState,
 		
 	}
 
