@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn3p1qydie3hu"]
+
+[ext_resource type="SpriteFrames" uid="uid://3sdf70yt27il" path="res://player/body/resources/klont.tres" id="2_y4asx"]
+[ext_resource type="Shape2D" uid="uid://bjib3nv5ad8ag" path="res://player/body/resources/klont_collider.tres" id="3_00deh"]
+[ext_resource type="PackedScene" uid="uid://c5v5lx51qcn5r" path="res://cameras/player_camera.tscn" id="4_wvhx8"]
+
+[node name="Klont" type="CharacterBody2D"]
+
+[node name="PlayerAnimator" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -10)
+sprite_frames = ExtResource("2_y4asx")
+animation = &"crouch"
+
+[node name="ColliderShape" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, 0.25)
+shape = ExtResource("3_00deh")
+
+[node name="PlayerCamera" parent="." instance=ExtResource("4_wvhx8")]
