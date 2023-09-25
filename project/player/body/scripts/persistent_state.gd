@@ -44,6 +44,8 @@ func _process(_delta):
 		crouch()
 	if Input.is_action_just_released("player_down"):
 		idle()
+	if Input.is_action_pressed("player_kick"):
+		kick()
 
 
 # stubs that call through to the implementation on the active state

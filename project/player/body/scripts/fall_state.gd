@@ -8,6 +8,9 @@ extends PlayerState
 
 func _ready():
 	animated_sprite.play("fall")
+	# transition to next state after landing animation, connected out of physics
+	# tick to prevent multiple reconnect attempts firing
+	animated_sprite.animation_finished.connect(_landing_anim_callback)
 
 
 func _physics_process(delta):
@@ -16,15 +19,17 @@ func _physics_process(delta):
 		persistent_state.velocity.y += persistent_state.gravity * delta
 	else:
 		animated_sprite.play("land")
-		# transition to idle after landing animation
-		animated_sprite.animation_finished.connect(_landing_anim_callback)
 	persistent_state.velocity.x *= persistent_state.friction
 	super._physics_process(delta)
 
 
 func _landing_anim_callback():
-	# FIX: transition to move state based on x velocity component
-	change_state.call("idle")
+	if persistent_state.is_on_floor():
+		# if there's any significant velocity we transition to move on touch-down
+		if persistent_state.velocity.x < persistent_state.min_move_speed:
+			change_state.call("idle")
+		else:
+			change_state.call("move")
 
 
 func _flip_direction():

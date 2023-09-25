@@ -42,3 +42,7 @@ func move_right():
 
 func jump():
 	change_state.call("jump")
+
+
+func kick():
+	change_state.call("kick")
