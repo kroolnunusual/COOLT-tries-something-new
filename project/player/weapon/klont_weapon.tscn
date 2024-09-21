@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://bf4ro1lfqdjbu"]
+[gd_scene load_steps=2 format=3 uid="uid://bf4ro1lfqdjbu"]
 
-[node name="klont_weapon" type="Node2D"]
+[ext_resource type="Script" path="res://player/weapon/scripts/persistent_state.gd" id="1_ecdff"]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_ecdff")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cugjibxqw48es"]
 
-[ext_resource type="Shape2D" uid="uid://dne4ixsnnaouf" path="res://props/test_platform.tres" id="1_a4cb6"]
+[ext_resource type="Shape2D" uid="uid://dne4ixsnnaouf" path="res://props/stage/test_platform.tres" id="1_a4cb6"]
 
 [sub_resource type="Gradient" id="Gradient_i8xnc"]
 

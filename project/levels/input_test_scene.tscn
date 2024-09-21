@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://wjpshefaacsr"]
+[gd_scene load_steps=4 format=3 uid="uid://wjpshefaacsr"]
 
-[ext_resource type="PackedScene" uid="uid://bn3p1qydie3hu" path="res://player/body/klont.tscn" id="1_1yt1x"]
-[ext_resource type="PackedScene" uid="uid://cugjibxqw48es" path="res://props/static_test_platform.tscn" id="2_utoxw"]
+[ext_resource type="Script" path="res://levels/input_test_scene.gd" id="1_mgwwg"]
+[ext_resource type="PackedScene" uid="uid://bn3p1qydie3hu" path="res://player/body/klont_body.tscn" id="1_r7ent"]
+[ext_resource type="PackedScene" uid="uid://cugjibxqw48es" path="res://props/stage/static_test_platform.tscn" id="2_utoxw"]
 
 [node name="InputTestScene" type="Node2D"]
+script = ExtResource("1_mgwwg")
 
-[node name="Klont" parent="." instance=ExtResource("1_1yt1x")]
-position = Vector2(-107, -50)
+[node name="Klont" parent="." instance=ExtResource("1_r7ent")]
+position = Vector2(-123, -62)
+crouch_friction = 0.9
 
 [node name="StaticTestPlatform" parent="." instance=ExtResource("2_utoxw")]
 position = Vector2(-56, 33)

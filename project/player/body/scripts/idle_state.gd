@@ -6,7 +6,8 @@ extends PlayerState
 
 
 func _ready():
-	animated_sprite.play("idle")
+	print_debug("BODY STATE - In idle")
+	animation_player.play("idle")
 
 
 func _physics_process(_delta):
@@ -16,15 +17,15 @@ func _physics_process(_delta):
 
 
 func _flip_direction():
-	animated_sprite.flip_h = not animated_sprite.flip_h
+	sprite.flip_h = not sprite.flip_h
 
 func move_left():
-	if not animated_sprite.flip_h:
+	if not sprite.flip_h:
 		_flip_direction()
 	change_state.call("move")
 
 func move_right():
-	if animated_sprite.flip_h:
+	if sprite.flip_h:
 		_flip_direction()
 	change_state.call("move")
 

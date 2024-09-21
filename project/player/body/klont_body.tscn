@@ -1,0 +1,200 @@
+[gd_scene load_steps=15 format=3 uid="uid://bn3p1qydie3hu"]
+
+[ext_resource type="Script" path="res://player/body/scripts/persistent_state.gd" id="1_plqwh"]
+[ext_resource type="Shape2D" uid="uid://bjib3nv5ad8ag" path="res://player/body/resources/klont_collider.tres" id="3_00deh"]
+[ext_resource type="PackedScene" uid="uid://bf4ro1lfqdjbu" path="res://player/weapon/klont_weapon.tscn" id="4_jfmp2"]
+[ext_resource type="Texture2D" uid="uid://dp3oiej5jpvu2" path="res://player/body/resources/kang_fu___klont_the_kangaroo_sprites_by_unidentified_124_df45vcp-fullview.png" id="4_q42lv"]
+[ext_resource type="PackedScene" uid="uid://c5v5lx51qcn5r" path="res://cameras/player_camera.tscn" id="5_pvjqw"]
+
+[sub_resource type="Animation" id="Animation_qseai"]
+resource_name = "crouch"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [10, 9, 8]
+}
+
+[sub_resource type="Animation" id="Animation_73gfb"]
+resource_name = "fall"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_rbcy0"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_g18e0"]
+resource_name = "jump"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["res://audio/sfx/jump_bounce.wav"],
+"method": &"play_sfx"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7522s"]
+resource_name = "kick"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [11, 12, 13, 14, 15, 14, 13, 12, 11]
+}
+
+[sub_resource type="Animation" id="Animation_n1rnb"]
+resource_name = "land"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [10, 0]
+}
+
+[sub_resource type="Animation" id="Animation_t7w8c"]
+resource_name = "turnaround"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [16, 17, 18]
+}
+
+[sub_resource type="Animation" id="Animation_4vlgt"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["res://audio/sfx/walk_bounce.wav"],
+"method": &"play_sfx"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tdx0s"]
+_data = {
+"crouch": SubResource("Animation_qseai"),
+"fall": SubResource("Animation_73gfb"),
+"idle": SubResource("Animation_rbcy0"),
+"jump": SubResource("Animation_g18e0"),
+"kick": SubResource("Animation_7522s"),
+"land": SubResource("Animation_n1rnb"),
+"turnaround": SubResource("Animation_t7w8c"),
+"walk": SubResource("Animation_4vlgt")
+}
+
+[node name="Klont" type="CharacterBody2D"]
+script = ExtResource("1_plqwh")
+crouch_friction = 0.4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_q42lv")
+hframes = 8
+vframes = 3
+frame = 10
+
+[node name="ColliderShape" type="CollisionShape2D" parent="."]
+position = Vector2(2.25, 9.25)
+shape = ExtResource("3_00deh")
+
+[node name="Weapon" parent="." instance=ExtResource("4_jfmp2")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tdx0s")
+}
+autoplay = "idle"
+
+[node name="PlayerCamera" parent="." instance=ExtResource("5_pvjqw")]

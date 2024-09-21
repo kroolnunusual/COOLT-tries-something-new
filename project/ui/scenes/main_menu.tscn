@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddhwx6l3abx13"]
+
+[ext_resource type="Script" path="res://ui/scenes/main_menu.gd" id="1_jldfi"]
+[ext_resource type="Texture2D" uid="uid://dxrvjrqtavckd" path="res://ui/resources/coolt.png" id="1_qu7fv"]
+[ext_resource type="Texture2D" uid="uid://b2hk3vr0lwfds" path="res://ui/resources/cult_of_cool.png" id="2_y757o"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jldfi")
+
+[node name="coolt_logo" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1440.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="coolt_logo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="coolt_logo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -720.0
+offset_top = -340.0
+offset_right = 720.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qu7fv")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="coolt_logo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -720.0
+offset_top = 146.0
+offset_right = 720.0
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_y757o")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

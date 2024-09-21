@@ -13,21 +13,17 @@ func setup(change_state_in, animated_sprite_in, persistent_state_in):
 	persistent_state = persistent_state_in
 
 
-func prev():
+func fire():
 	pass
+
+
+func prev():
+	print_debug("prev weapon")
 
 	
 func next():
-	pass
+	print_debug("next weapon")
 
 
 func quick_select():
-	pass
-
-
-func aim():
-	pass
-
-
-func fire():
 	pass

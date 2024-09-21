@@ -7,9 +7,10 @@ extends PlayerState
 
 
 func _ready():
-	animated_sprite.play("kick")
+	print_debug("BODY STATE - In kick")
+	animation_player.play("kick")
 	# once the animation is finished, we transition to idle state
-	animated_sprite.animation_finished.connect(_kick_anim_callback)
+	animation_player.animation_finished.connect(_kick_anim_callback)
 
 
 func _physics_process(delta):
@@ -20,5 +21,5 @@ func _physics_process(delta):
 	super._physics_process(delta)
 
 
-func _kick_anim_callback():
+func _kick_anim_callback(_anim_name):
 	change_state.call("idle")

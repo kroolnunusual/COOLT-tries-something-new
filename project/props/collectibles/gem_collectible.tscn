@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://f0ew1q36l00o"]
+
+[node name="gem_collectible" type="Node2D"]

@@ -9,8 +9,10 @@ extends CharacterBody2D
 
 # The active state
 var change_state
-# A reference to the player's PlayerAnimator component
-var animated_sprite
+# A reference to the player's AnimationPlayer component
+var animation_player
+# A reference to the player's Sprite2D component
+var sprite
 # The persistent state object which the physics system acts on and which 
 # contains our reused player variables.
 var persistent_state
@@ -24,9 +26,10 @@ func _physics_process(_delta):
 
 
 # Used to refresh states after the factory creates the new active object
-func setup(change_state_in, animated_sprite_in, persistent_state_in):
+func setup(change_state_in, animation_player_in, sprite_in, persistent_state_in):
 	change_state = change_state_in
-	animated_sprite = animated_sprite_in
+	animation_player = animation_player_in
+	sprite = sprite_in
 	persistent_state = persistent_state_in
 
 

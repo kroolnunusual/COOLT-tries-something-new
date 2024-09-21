@@ -7,7 +7,8 @@ extends PlayerState
 
 
 func _ready():
-	animated_sprite.play("walk")
+	print_debug("BODY STATE - In move")
+	animation_player.play("walk")
 
 
 func _physics_process(delta):
@@ -26,7 +27,7 @@ func _physics_process(delta):
 
 func move_left():
 	# if you were facing right, switch back to idle
-	if not animated_sprite.flip_h:
+	if not sprite.flip_h:
 		change_state.call("idle")
 	# otherwise, apply negative move speed to the x component of our velocity
 	persistent_state.velocity.x = persistent_state.move_speed * -1
@@ -34,7 +35,7 @@ func move_left():
 
 func move_right():
 	# if you were facing left, switch back to idle
-	if animated_sprite.flip_h:
+	if sprite.flip_h:
 		change_state.call("idle")
 	# otherwise, apply move speed to the x component of our velocity
 	persistent_state.velocity.x = persistent_state.move_speed
@@ -42,6 +43,10 @@ func move_right():
 
 func jump():
 	change_state.call("jump")
+
+
+func crouch():
+	change_state.call("crouch")
 
 
 func kick():

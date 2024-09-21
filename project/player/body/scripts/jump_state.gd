@@ -7,7 +7,8 @@ extends PlayerState
 
 
 func _ready():
-	animated_sprite.play("jump")
+	print_debug("BODY STATE - In jump")
+	animation_player.play("jump")
 	# we want to apply full jump force at the beginning of the state
 	persistent_state.velocity.y = persistent_state.jump_speed
 
@@ -19,7 +20,7 @@ func _physics_process(delta):
 	else:
 		change_state.call("idle")
 	# as soon as we're no long moving up, we're falling
-	if persistent_state.velocity.y > persistent_state.min_move_speed:
+	if persistent_state.velocity.y > persistent_state.min_jump_speed:
 		change_state.call("fall")
 	# decelerate left and right inputs
 	persistent_state.velocity.x *= persistent_state.friction
@@ -27,12 +28,12 @@ func _physics_process(delta):
 
 
 func _flip_direction():
-	animated_sprite.flip_h = not animated_sprite.flip_h
+	sprite.flip_h = not sprite.flip_h
 
 
 func move_left():
 	# flip the sprite in the appropriate direction...
-	if not animated_sprite.flip_h:
+	if not sprite.flip_h:
 		_flip_direction()
 	# ...and apply force (negative for left movement)
 	persistent_state.velocity.x = persistent_state.move_speed * -1
@@ -40,6 +41,6 @@ func move_left():
 
 func move_right():
 	# ditto
-	if animated_sprite.flip_h:
+	if sprite.flip_h:
 		_flip_direction()
 	persistent_state.velocity.x = persistent_state.move_speed

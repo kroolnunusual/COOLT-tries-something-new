@@ -14,12 +14,16 @@ var state
 # the instantiated state factory
 var state_factory
 
-# player constants
-const min_jump_speed = 0
-const min_move_speed = 0.3
-const move_speed = 800
-const jump_speed = -600
-const friction = 0.32
+# player parameters
+@export var min_jump_speed = 0.1
+@export var min_move_speed = 0.3
+@export var move_speed = 900
+@export var jump_speed = -600
+@export var high_jump_speed = -900
+@export var long_jump_h_speed = 3000
+@export var long_jump_v_speed = -500
+@export var friction = 0.4
+@export var crouch_friction = 0.9
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -88,6 +92,10 @@ func change_state(new_state_name):
 	if state != null:
 		state.queue_free()
 	state = state_factory.get_state(new_state_name).new()
-	state.setup(Callable(self, "change_state"), $PlayerAnimator, self)
+	state.setup(Callable(self, "change_state"), $AnimationPlayer, $Sprite2D, self)
 	state.name = "current_state"
 	add_child(state)
+
+
+func play_sfx(sfx_path):
+	SfxStreamManager.play(sfx_path)

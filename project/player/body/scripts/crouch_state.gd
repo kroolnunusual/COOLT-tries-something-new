@@ -7,25 +7,40 @@ extends PlayerState
 
 
 func _ready():
-	animated_sprite.play("crouch")
+	print_debug("BODY STATE - In crouch")
+	animation_player.play("crouch")
+
+
+func _physics_process(delta):
+	# if you're not on a floor, you're falling
+	if not persistent_state.is_on_floor():
+		change_state.call("fall")
+	# apply friction to slow down
+	persistent_state.velocity.x *= persistent_state.crouch_friction
+	# call base physics tick
+	super._physics_process(delta)
 
 
 func _flip_direction():
-	animated_sprite.flip_h = not animated_sprite.flip_h
+	sprite.flip_h = not sprite.flip_h
 
 
 func move_left():
-	if not animated_sprite.flip_h:
+	if not sprite.flip_h:
 		_flip_direction()
 
 
 func move_right():
-	if animated_sprite.flip_h:
+	if sprite.flip_h:
 		_flip_direction()
 
 
 func jump():
-	change_state.call("jump")
+	if abs(persistent_state.velocity.x) > persistent_state.min_move_speed:
+		print_debug(persistent_state.velocity.x)
+		change_state.call("long_jump")
+	else:
+		change_state.call("high_jump")
 
 
 func kick():
@@ -33,10 +48,10 @@ func kick():
 
 
 func idle():
-	animated_sprite.play("reverse_crouch")
+	animation_player.play_backwards("crouch")
 	# once the animation is finished, we transition to idle state
-	animated_sprite.animation_finished.connect(_idle_anim_callback)
+	animation_player.animation_finished.connect(_idle_anim_callback)
 
 
-func _idle_anim_callback():
+func _idle_anim_callback(_anim_name):
 	change_state.call("idle")
